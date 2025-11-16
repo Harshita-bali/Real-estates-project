@@ -1,3 +1,130 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A beautiful modern house with a pool at dusk.",
+      "imageUrl": "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwaG91c2V8ZW58MHx8fHwxNzYzMTg4MTU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern house"
+    },
+    {
+      "id": "about-1",
+      "description": "The interior of a modern, open-plan office building.",
+      "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBidWlsZGluZ3xlbnwwfHx8fDE3NjMyNTczMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern building"
+    },
+    {
+      "id": "map-1",
+      "description": "An abstract city map showing streets and buildings.",
+      "imageUrl": "https://images.unsplash.com/photo-1619468129361-605ebea04b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MzE3ODI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city map"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2MzIxOTY1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of a person with a professional look.",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMyNTYwOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a happy person.",
+      "imageUrl": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjBwZXJzb258ZW58MHx8fHwxNzYzMTgzMTIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy person"
+    },
+    {
+      "id": "team-1",
+      "description": "Headshot of a professional person.",
+      "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwZXJzb258ZW58MHx8fHwxNzYzMTk2ODM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional person"
+    },
+    {
+      "id": "team-2",
+      "description": "Headshot of a smiling woman.",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1559855603-ce4c8f480d76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWlsaW5nJTIwd29tYW58ZW58MHx8fHwxNzYzMjMxOTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling woman"
+    },
+    {
+      "id": "team-3",
+      "description": "Headshot of a smiling man.",
+      "imageUrl": "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbWlsaW5nJTIwbWFufGVufDB8fHx8MTc2MzIyMzQzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smiling man"
+    },
+    {
+      "id": "prop-1",
+      "description": "Exterior of a modern luxury apartment building.",
+      "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYzMjkzMTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern apartment"
+    },
+    {
+      "id": "prop-2",
+      "description": "Spacious suburban house with a green lawn.",
+      "imageUrl": "https://images.unsplash.com/photo-1605146768851-eda79da39897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdWJ1cmJhbiUyMGhvdXNlfGVufDB8fHx8MTc2MzE4ODQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "suburban house"
+    },
+    {
+      "id": "prop-3",
+      "description": "A commercial building with glass facade in a business district.",
+      "imageUrl": "https://images.unsplash.com/photo-1621831337128-35676ca30868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21tZXJjaWFsJTIwYnVpbGRpbmd8ZW58MHx8fHwxNzYzMjg1NzE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "commercial building"
+    },
+    {
+      "id": "prop-4",
+      "description": "An empty plot of land with trees in the background.",
+      "imageUrl": "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYW5kJTIwcGxvdHxlbnwwfHx8fDE3NjMyMDYzODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "land plot"
+    },
+    {
+      "id": "prop-5",
+      "description": "Cozy living room of a rental apartment.",
+      "imageUrl": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhcGFydG1lbnQlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjMxODQ1MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "apartment interior"
+    },
+    {
+      "id": "prop-6",
+      "description": "Modern villa with a swimming pool.",
+      "imageUrl": "https://images.unsplash.com/photo-1680874261352-ed1ee3d1cf01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjB2aWxsYXxlbnwwfHx8fDE3NjMxOTk5MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern villa"
+    },
+    {
+      "id": "prop-7",
+      "description": "A high-rise residential tower in a city.",
+      "imageUrl": "https://images.unsplash.com/photo-1684771404738-b74247874224?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXNpZGVudGlhbCUyMHRvd2VyfGVufDB8fHx8MTc2MzIxMzQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "residential tower"
+    },
+    {
+      "id": "prop-8",
+      "description": "An office space available for rent.",
+      "imageUrl": "https://images.unsplash.com/photo-1562664377-709f2c337eb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b2ZmaWNlJTIwc3BhY2V8ZW58MHx8fHwxNzYzMjYyOTMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office space"
+    },
+    {
+      "id": "prop-9",
+      "description": "Penthouse apartment with a city view.",
+      "imageUrl": "https://images.unsplash.com/photo-1758448756350-3d0eec02ba37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVudGhvdXNlJTIwYXBhcnRtZW50fGVufDB8fHx8MTc2MzI5MzQ2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "penthouse apartment"
+    },
+    {
+      "id": "prop-10",
+      "description": "A traditional Indian-style house.",
+      "imageUrl": "https://images.unsplash.com/photo-1724023932533-6322cf67be1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhZGl0aW9uYWwlMjBob3VzZXxlbnwwfHx8fDE3NjMyOTM0NjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "traditional house"
+    },
+    {
+      "id": "prop-11",
+      "description": "Agricultural land for sale.",
+      "imageUrl": "https://images.unsplash.com/photo-1629725657499-0dcb129a427e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhZ3JpY3VsdHVyYWwlMjBsYW5kfGVufDB8fHx8MTc2MzI5MzQ2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "agricultural land"
+    },
+    {
+      "id": "prop-12",
+      "description": "A studio apartment for rent.",
+      "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHVkaW8lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYzMjkzNDY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "studio apartment"
+    }
+  ]
 }
