@@ -1,0 +1,110 @@
+/**
+ * @file Firestore Security Rules for ApnaAddress Platform
+ *
+ * Core Philosophy:
+ * This ruleset enforces a strict user-ownership model for user profiles and allows public read access to property listings
+ * while restricting write access to the owner of the property.
+ *
+ * Data Structure:
+ * - User profiles are stored under `/users/{userId}`, ensuring each user can only access their own data.
+ * - Property listings are stored under `/properties/{propertyId}`.
+ *
+ * Key Security Decisions:
+ * - Users can only manage their own profiles (create, update, delete).
+ * - Property listings are publicly readable, but only the owner (creator) can modify or delete them.
+ * - Data validation is relaxed in this prototyping phase to allow for schema flexibility,
+ *   but critical ownership relationships are strictly enforced.
+ * - Listing all users is disallowed.
+ *
+ * Denormalization for Authorization:
+ * - Each property document contains a `userId` field indicating ownership, avoiding the need for complex lookups.
+ *
+ * Structural Segregation:
+ * - User profiles and property listings are stored in separate top-level collections to allow for different
+ *   security postures (private vs. public read).
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Controls access to user profiles. Only the authenticated user can read, update, or delete their own profile.
+     * @path /users/{userId}
+     * @allow (create) User with ID 'user123' can create their own profile.
+     *     - auth.uid: 'user123'
+     *     - request.resource.data: {id: 'user123', ...}
+     * @allow (get) User with ID 'user123' can read their own profile.
+     *     - auth.uid: 'user123'
+     * @allow (update) User with ID 'user123' can update their own profile.
+     *     - auth.uid: 'user123'
+     * @allow (delete) User with ID 'user123' can delete their own profile.
+     *     - auth.uid: 'user123'
+     * @deny (create) User with ID 'user123' cannot create a profile with ID 'user456'.
+     *     - auth.uid: 'user123'
+     *     - request.resource.data: {id: 'user456', ...}
+     * @deny (get) User with ID 'user123' cannot read the profile of user 'user456'.
+     *     - auth.uid: 'user123'
+     * @principle Enforces document ownership for user profiles.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false; // Listing users is not permitted.
+      allow create: if isSignedIn() && isSelfCreation(userId);
+      allow update: if isExistingOwner(userId) && isUserIdNotChanged();
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Controls access to property listings. Allows public read access, but restricts creation, updates, and deletes to the property owner.
+     * @path /properties/{propertyId}
+     * @allow (get) Any user can read a property listing.
+     * @allow (list) Any user can list property listings.
+     * @allow (create) User 'user123' can create a property listing with their ID.
+     *     - auth.uid: 'user123'
+     *     - request.resource.data: {userId: 'user123', ...}
+     * @allow (update) User 'user123' can update a property listing they own.
+     *     - auth.uid: 'user123'
+     * @allow (delete) User 'user123' can delete a property listing they own.
+     *     - auth.uid: 'user123'
+     * @deny (create) User 'user123' cannot create a property listing with someone else's ID.
+     *     - auth.uid: 'user123'
+     *     - request.resource.data: {userId: 'user456', ...}
+     * @deny (update) User 'user123' cannot update a property listing owned by 'user456'.
+     *     - auth.uid: 'user123'
+     * @principle Allows public read access while enforcing ownership for writes.
+     */
+    match /properties/{propertyId} {
+      allow get, list: if true;
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(resource.data.userId);
+      allow delete: if isExistingOwner(resource.data.userId);
+    }
+
+    //---------- Helper functions ----------
+
+    // Checks if the user is signed in.
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Checks if the user ID matches the authenticated user's ID.
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Checks if the user is creating their own document (e.g., /users/{userId}).
+    function isSelfCreation(userId) {
+        return request.auth.uid == userId && request.resource.data.id == userId;
+    }
+
+    // Checks if the user is the owner of an existing document.
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    // Checks if the userId field is not being changed during an update.
+    function isUserIdNotChanged() {
+      return request.resource.data.id == resource.data.id;
+    }
+  }
+}

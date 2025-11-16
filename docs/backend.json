@@ -1,0 +1,153 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the ApnaAddress platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the User entity."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the user."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the user."
+        },
+        "profilePicture": {
+          "type": "string",
+          "description": "URL to the user's profile picture.",
+          "format": "uri"
+        },
+        "dateJoined": {
+          "type": "string",
+          "description": "Date and time the user joined the platform.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ]
+    },
+    "Property": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Property",
+      "type": "object",
+      "description": "Represents a property listed on the ApnaAddress platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Property entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the property listing."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the property."
+        },
+        "propertyType": {
+          "type": "string",
+          "description": "Type of property (e.g., Residential, Commercial, Plot, Rental)."
+        },
+        "city": {
+          "type": "string",
+          "description": "City where the property is located."
+        },
+        "size": {
+          "type": "number",
+          "description": "Size of the property (e.g., in square feet)."
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the property."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL to the property's image.",
+          "format": "uri"
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Contact information for inquiries about the property."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Property)"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "propertyType",
+        "city",
+        "size",
+        "price",
+        "imageUrl",
+        "contactInfo",
+        "userId"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles. Path-based ownership ensures only the user can access their own profile data.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/properties/{propertyId}",
+        "definition": {
+          "entityName": "Property",
+          "schema": {
+            "$ref": "#/backend/entities/Property"
+          },
+          "description": "Stores property listings. Includes userId for ownership.",
+          "params": [
+            {
+              "name": "propertyId",
+              "description": "The unique identifier for the property."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support the ApnaAddress real estate platform, focusing on user management, property listings, and AI-powered recommendations. It emphasizes authorization independence, security, and scalability, adhering to the core design principles outlined. The structure is designed to avoid hierarchical authorization dependencies by denormalizing data where necessary, particularly for access control.  This means duplicating authorization-related data (like user roles or property ownership) into subcollections or related documents to eliminate the need for `get()` calls in security rules, enabling atomic operations. Segregation of data based on security posture is implemented by storing user data and public property listings in separate collections.  This allows for simpler and more secure rules that can be applied uniformly across each collection.  The chosen structure facilitates secure listing operations (QAPs) by clearly defining ownership via path-based access control for user-owned data and leveraging membership maps for collaborative scenarios, although there aren't explicit collaborative scenarios in the provided requirements. The AI recommendations do not require special security considerations, as they read property data already available to the user."
+  }
+}
