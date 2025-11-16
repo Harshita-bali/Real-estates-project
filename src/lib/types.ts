@@ -10,4 +10,6 @@ export type Property = {
   bathrooms?: number;
   imageUrl: string;
   imageHint: string;
+  userId?: string;
+  contactInfo?: string;
 };
