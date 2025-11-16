@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Building2, LogOut, LayoutDashboard, UserPlus, LogIn } from "lucide-react";
+import { Menu, Building2, LogOut, LayoutDashboard, UserPlus, LogIn, Home, Building, PlusSquare, Lightbulb, Info, Mail } from "lucide-react";
 import { useUser, useAuth } from "@/firebase";
 
 import { cn } from "@/lib/utils";
@@ -17,14 +17,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/properties", label: "Properties" },
-  { href: "/post-property", label: "Post Property" },
-  { href: "/recommendations", label: "AI Recommender" },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/properties", label: "Properties", icon: Building },
+  { href: "/post-property", label: "Post Property", icon: PlusSquare },
+  { href: "/recommendations", label: "AI Recommender", icon: Lightbulb },
+  { href: "/about", label: "About Us", icon: Info },
+  { href: "/contact", label: "Contact", icon: Mail },
 ];
 
 const getInitials = (name: string) => {
@@ -108,20 +115,29 @@ export function Header() {
               ApnaAddress
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "transition-colors hover:text-primary",
-                  pathname === link.href ? "text-primary" : "text-foreground/60"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <TooltipProvider>
+            <nav className="flex items-center space-x-4 text-sm font-medium">
+              {navLinks.map((link) => (
+                <Tooltip key={link.href}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-primary",
+                        pathname === link.href ? "bg-accent text-accent-foreground" : "text-muted-foreground"
+                      )}
+                    >
+                      <link.icon className="h-5 w-5" />
+                      <span className="sr-only">{link.label}</span>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{link.label}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </nav>
+          </TooltipProvider>
         </div>
         
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -144,7 +160,7 @@ export function Header() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                        <div className="flex flex-col p-6">
+                        <div className="flex flex-col">
                             <SheetClose asChild>
                                 <Link href="/" className="mb-8 flex items-center space-x-2">
                                     <Building2 className="h-6 w-6 text-primary" />
@@ -157,10 +173,11 @@ export function Header() {
                                         <Link
                                             href={link.href}
                                             className={cn(
-                                                "text-lg font-medium transition-colors hover:text-primary",
-                                                pathname === link.href ? "text-primary" : "text-foreground"
+                                                "flex items-center gap-3 rounded-lg px-3 py-2 text-lg font-medium transition-colors hover:text-primary",
+                                                pathname === link.href ? "bg-accent text-primary" : "text-foreground"
                                             )}
                                         >
+                                            <link.icon className="h-5 w-5" />
                                             {link.label}
                                         </Link>
                                     </SheetClose>
@@ -188,7 +205,7 @@ export function Header() {
                                         </SheetClose>
                                         <SheetClose asChild>
                                             <Button asChild className="w-full">
-                                                <Link href="/signup"><UserPlus className="mr-2 h-4 w-4"/>Sign Up</Link>
+                                                <Link href="/signup"><UserPlus className="mr-2 h-4 w-4" />Sign Up</Link>
                                             </Button>
                                         </SheetClose>
                                     </div>
