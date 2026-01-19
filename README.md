@@ -1,20 +1,23 @@
-# 🏠 ApnaAddress.in – Real Estate Web Platform
+# 🏠 ApnaAddress.in – AI-Powered Real Estate Platform
 
-ApnaAddress is a web-based real estate platform designed to simplify property discovery and listing management.  
-The platform allows users to explore properties for **Buy**, **Rent**, and **Projects**, while enabling agents and administrators to manage listings efficiently.
+ApnaAddress is a modern, AI-powered real estate web platform designed to simplify property discovery, recommendations, and listing management.  
+It enables users to explore properties for **Buy**, **Rent**, and **New Projects**, with personalized recommendations powered by **Generative AI**.
 
-Built with scalability and usability in mind, ApnaAddress focuses on clean UI, structured data handling, and smooth user navigation.
+The platform focuses on performance, scalability, and user experience through server-rendered architecture and cloud-based services.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
 - 🏡 Browse properties for **Buy**, **Rent**, and **New Projects**
-- 👤 Dedicated sections for **Agents** and **Property Services**
-- 🔍 Property listings with essential details and images
-- 📱 Responsive design for desktop and mobile devices
-- 🔐 Secure authentication and role-based access (Admin / Agent)
-- 🗂️ Structured backend for managing properties and users
+- 🤖 AI-powered **property recommendations** using Generative AI
+- 🔐 Secure **user authentication** (sign-up / login)
+- 👤 User profile management
+- 🔍 Smart property discovery and search
+- 📱 Fully responsive design
+- ⚡ High-performance server-rendered application
+- 🗂️ Cloud-based data storage and management
+- 🛡️ Secure backend services
 
 ---
 
@@ -37,54 +40,43 @@ Built with scalability and usability in mind, ApnaAddress focuses on clean UI, s
 
 ### Language
 - **TypeScript** used throughout the project to ensure type safety and improved code quality
-
-
----
-
+  
 ## 📂 Project Structure
 ApnaAddress/
 │
+├── app/
+│ ├── page.tsx
+│ ├── layout.tsx
+│ └── globals.css
+│
+├── components/
+│ ├── Navbar.tsx
+│ ├── PropertyCard.tsx
+│ ├── Recommendation.tsx
+│ └── Footer.tsx
+│
+├── lib/
+│ ├── firebase.ts
+│ ├── genkit.ts
+│ └── config.ts
+│
 ├── public/
-│ ├── css/
-│ ├── js/
 │ └── images/
 │
-├── routes/
-│ ├── auth.js
-│ ├── property.js
-│ └── admin.js
+├── types/
+│ └── property.ts
 │
-├── views/
-│ ├── buy.html
-│ ├── rent.html
-│ ├── projects.html
-│ ├── agents.html
-│ └── services.html
-│
-├── server.js
 ├── package.json
+├── tsconfig.json
 └── README.md
 
-## ⚙️ Installation & Setup
-1. **Clone the repository**
-```bash
-git clone https://github.com/your-username/ApnaAddress.git
-
-✅ This makes it appear as a clean command box on GitHub.
 
 ---
 
-### 4️⃣ Next steps (same pattern)
+## ⚙️ Installation & Setup
 
-```markdown
-2. **Navigate to the project directory**
+1. **Clone the repository**
 ```bash
+git clone https://github.com/your-username/ApnaAddress.git
 cd ApnaAddress
-
-
-- Make it **ATS + recruiter optimized**
-- Customize it for **internship / placement submissions**
-
-
-
-
+npm install
