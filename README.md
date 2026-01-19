@@ -20,23 +20,24 @@ Built with scalability and usability in mind, ApnaAddress focuses on clean UI, s
 
 ## 🛠️ Tech Stack
 
-**Frontend**
-- HTML
-- CSS
-- JavaScript  
-- Plain HTML templates (no EJS)
+### Framework
+- **Next.js** (built on React) for creating a high-performance, server-rendered web application
 
-**Backend**
-- Node.js
-- Express.js
+### Styling
+- **Tailwind CSS** for a utility-first styling approach
+- **ShadCN/UI** for pre-built, accessible, and reusable UI components
 
-**Database**
-- MySQL
+### Backend & Database
+- **Firebase** for backend services, including:
+  - **Firestore** as a NoSQL database for storing user and property data
+  - **Firebase Authentication** for secure user registration and login
 
-**Other Tools**
-- Git & GitHub
-- RESTful APIs
-- bcrypt (for password hashing)
+### Generative AI
+- **Genkit** integrated with **Google’s Gemini model** to power AI-driven property recommendation features
+
+### Language
+- **TypeScript** used throughout the project to ensure type safety and improved code quality
+
 
 ---
 
