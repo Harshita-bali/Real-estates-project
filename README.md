@@ -89,18 +89,54 @@ git clone https://github.com/your-username/ApnaAddress.git
 npm install
 ```
 4.**Configure Firebase**
-
-Create a Firebase project
-
-Enable Firestore Database
-
-Enable Firebase Authentication
-
-Add your Firebase configuration to the project (firebase.ts)
+.Create a Firebase project
+.Enable Firestore Database
+.Enable Firebase Authentication
+.Add your Firebase configuration to the project (firebase.ts)
 
 5.**Configure Genkit & Gemini**
-Set up Genkit
+.Set up Genkit
+.Connect with Google Gemini API
+.Add API keys in environment variables
 
-Connect with Google Gemini API
+6.**Run the application**
+```bash
+npm run dev
+```
+7.**Open in browser**
+```bash
+http://localhost:3000
+```
+## 🤖 AI Property Recommendation System
 
-Add API keys in environment variables
+-The platform uses Generative AI to provide intelligent property recommendations:
+-Analyzes user preferences and browsing behavior
+-Processes property metadata stored in Firestore
+-Uses Genkit with Google Gemini model for recommendation generation
+-Delivers personalized property suggestions in real-time
+
+## 🎯 Use Cases
+
+-Users searching for residential or commercial properties
+-Buyers and tenants looking for personalized recommendations
+-Real estate agents managing property listings
+-Platform administrators managing users and content
+
+## 📈 Future Enhancements
+
+-Advanced filters (budget, location, amenities, property type)
+-AI chatbot for property queries
+-Virtual property tours
+-Payment gateway integration
+-Appointment booking system
+-Cloud deployment automation
+-Mobile application integration
+
+## Contact
+
+
+HARSHITA BALI - [harshita13052005@gmail.com]
+Project Link: - https://real-estates-project-alpha.vercel.app/
+
+
+
