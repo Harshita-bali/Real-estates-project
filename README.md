@@ -79,4 +79,28 @@ ApnaAddress/
 ```bash
 git clone https://github.com/your-username/ApnaAddress.git
 
-2. **Clone the repository**
+```
+2. **Navigate to the project directory**
+   ```bash
+   cd ApnaAddress
+   ```
+3. **Install dependencies**
+```bash
+npm install
+```
+4.**Configure Firebase**
+
+Create a Firebase project
+
+Enable Firestore Database
+
+Enable Firebase Authentication
+
+Add your Firebase configuration to the project (firebase.ts)
+
+5.**Configure Genkit & Gemini**
+Set up Genkit
+
+Connect with Google Gemini API
+
+Add API keys in environment variables
